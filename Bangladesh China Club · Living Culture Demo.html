@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bangladesh China Club · Living Culture Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@500;700&family=Noto+Serif+Bengali:wght@500;700&family=Noto+Serif+SC:wght@500;700&family=Noto+Sans:wght@400;600&family=Noto+Sans+Bengali:wght@400;600&family=Noto+Sans+SC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef2ed;--surface:#ffffff;--surface2:#e2eae4;--text:#10231c;--muted:#4b6258;--line:rgba(16,35,28,.14);
+  --jade:#0b7a5a;--red:#c8321f;--gold:#9a6b0c;--btn:#c8321f;--btn-h:#a62716;
+  --serif:"Noto Serif Display","Noto Serif Bengali","Noto Serif SC",Georgia,"Times New Roman",serif;
+  --sans:"Noto Sans","Noto Sans Bengali","Noto Sans SC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --pad:clamp(18px,5vw,56px);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#0a1713;--surface:#11241d;--surface2:#183029;--text:#eaf0e8;--muted:#98b0a5;--line:rgba(255,255,255,.13);--jade:#37c597;--red:#ef5a45;--gold:#e8b04a}
+}
+:root[data-theme="dark"]{--bg:#0a1713;--surface:#11241d;--surface2:#183029;--text:#eaf0e8;--muted:#98b0a5;--line:rgba(255,255,255,.13);--jade:#37c597;--red:#ef5a45;--gold:#e8b04a}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--sans);-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.12;margin:0}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{width:min(1120px,100% - 2*var(--pad));margin-inline:auto}
+section{padding:clamp(56px,9vw,104px) 0}
+.sec-head{margin-bottom:34px;max-width:60ch}
+.sec-head h2{font-size:clamp(1.9rem,4.4vw,3rem);margin-bottom:12px}
+.sec-head p{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:10px;padding:12px 20px;font-weight:600;background:var(--btn);color:#fff;text-decoration:none;transition:background .2s,transform .15s}
+.btn:hover{background:var(--btn-h)}.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.chip{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:7px 14px;font-size:.92rem;transition:background .2s,border-color .2s}
+.chip[aria-pressed="true"],.chip.on{background:var(--jade);border-color:var(--jade);color:#fff}
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#06130e}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+header.top .in{display:flex;align-items:center;gap:18px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;margin-right:auto}
+.brand svg{width:34px;height:34px;flex:none}
+.brand b{font-family:var(--serif);font-size:1.05rem;display:block;line-height:1.1}
+.brand small{color:var(--muted);font-size:.74rem;display:block}
+nav.links{display:flex;gap:18px}
+nav.links a{color:var(--muted);text-decoration:none;font-size:.93rem}
+nav.links a:hover{color:var(--text)}
+.lang{display:flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:transparent;padding:5px 11px;font-size:.85rem}
+.lang button[aria-pressed="true"]{background:var(--text);color:var(--bg)}
+@media(max-width:860px){nav.links{display:none}.brand small{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:min(90svh,820px);overflow:hidden;background:#07110e;color:#f1f3ec;padding:0}
+.hero svg.scene{position:absolute;inset:0;width:100%;height:100%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,12,10,.78) 0%,rgba(5,12,10,.35) 48%,transparent 70%);pointer-events:none}
+.hero .copy{position:relative;z-index:2;width:min(1120px,100% - 2*var(--pad));margin-inline:auto;padding:clamp(34px,7vw,84px) 0}
+.hero .names{display:flex;flex-wrap:wrap;gap:6px 18px;color:#e8b04a;font-family:var(--serif);font-size:1.02rem;margin-bottom:18px}
+.hero h1{font-size:clamp(2.3rem,6.4vw,4.7rem);max-width:12ch;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.hero .sub{margin-top:20px;max-width:46ch;color:#d4dfd7;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.sun{animation:rise 5.5s cubic-bezier(.18,.7,.2,1) both}
+@keyframes rise{from{transform:translateY(200px)}to{transform:translateY(0)}}
+.refl{animation:fadein 4s 2.2s both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.star{animation:twinkle 4s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.15}to{opacity:.95}}
+.lt{animation:float linear infinite}
+@keyframes float{0%{transform:translateY(0);opacity:0}8%{opacity:1}88%{opacity:.9}100%{transform:translateY(-560px);opacity:0}}
+.sway{animation:sway 4s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 0}
+@keyframes sway{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+.boat-b{animation:sailR 18s ease-in-out infinite alternate}
+.boat-c{animation:sailL 18s ease-in-out infinite alternate}
+@keyframes sailR{from{transform:translate(110px,528px)}to{transform:translate(400px,528px)}}
+@keyframes sailL{from{transform:translate(1060px,516px)}to{transform:translate(800px,516px)}}
+.bob{animation:bob 3.4s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes bob{from{transform:rotate(-1.6deg) translateY(0)}to{transform:rotate(1.6deg) translateY(3px)}}
+.wave{animation:drift 8s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translateX(-22px)}to{transform:translateX(22px)}}
+.shim{animation:shim 2.4s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+@keyframes shim{from{transform:scaleX(.82)}to{transform:scaleX(1.08)}}
+
+/* words */
+.words{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:860px){.words{grid-template-columns:repeat(2,1fr)}}
+.flip{perspective:900px;border:0;background:none;padding:0;height:170px;text-align:center}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d}
+.flip[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px}
+.face.f{background:var(--surface);border:1px solid var(--line)}
+.face.b{background:var(--jade);color:#fff;transform:rotateY(180deg)}
+:root:not([data-theme="light"]) .face.b{color:#06130e}
+.face .bn{font-family:var(--serif);font-size:1.9rem;line-height:1.2}
+.face .zh{font-family:var(--serif);font-size:2.2rem;line-height:1.2;color:var(--red)}
+.face .meaning{font-family:var(--serif);font-size:1.25rem}
+.face small{font-size:.85rem;opacity:.92;max-width:20ch}
+.steam{position:absolute;top:8px;right:14px;width:34px;height:40px;overflow:visible}
+.steam path{fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;opacity:0;animation:steam 3s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:.9s}.steam path:nth-child(3){animation-delay:1.8s}
+@keyframes steam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.7}100%{opacity:0;transform:translateY(-12px)}}
+
+/* studio */
+.studio{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:30px;align-items:start}
+@media(max-width:860px){.studio{grid-template-columns:1fr}}
+.padbox{position:relative;aspect-ratio:1;max-width:640px;width:100%;border-radius:50%;background:radial-gradient(circle,#10261f 0%,#0a1713 70%);border:1px solid var(--line);overflow:hidden;touch-action:none;justify-self:center}
+.padbox canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.padbox .hint{position:absolute;inset:0;display:grid;place-items:center;color:#9db3a9;text-align:center;pointer-events:none;font-family:var(--serif);font-size:1.15rem;padding:20%;transition:opacity .4s}
+.ctrl{display:grid;gap:20px}
+.ctrl h3{font-size:1.05rem;margin-bottom:8px;font-family:var(--sans);font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.sw{width:36px;height:36px;border-radius:50%;border:3px solid transparent;padding:0}
+.sw[aria-pressed="true"]{border-color:var(--text)}
+.note{color:var(--muted);font-size:.92rem}
+
+/* festival */
+.fest-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.stagebox{position:relative;border-radius:18px;overflow:hidden;background:#07110e;border:1px solid var(--line)}
+.stagebox canvas{display:block;width:100%;height:clamp(320px,56vw,560px);touch-action:manipulation;cursor:pointer}
+.fest-cap{margin-top:16px;display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:baseline}
+.fest-cap h3{font-size:1.5rem}
+.fest-cap .nm{font-family:var(--serif);color:var(--red);font-size:1.3rem}
+.fest-cap p{grid-column:1/-1;color:var(--muted);max-width:68ch}
+
+/* route */
+.route{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(14px,3vw,28px)}
+.route svg{width:100%;height:auto;display:block;overflow:visible}
+.rnode{cursor:pointer}
+.rnode circle{transition:fill .3s,r .3s}
+.rcap{display:grid;grid-template-columns:auto 1fr;gap:4px 22px;margin-top:10px;min-height:150px;align-items:start}
+.rcap .yr{font-family:var(--serif);font-size:clamp(2rem,5vw,3.2rem);color:var(--red);line-height:1}
+.rcap h3{font-size:1.4rem}
+.rcap .where{color:var(--jade);font-size:.92rem;margin:2px 0 8px}
+.rcap p{color:var(--muted);max-width:60ch}
+.rctrl{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+@media(max-width:560px){.rcap{grid-template-columns:1fr}}
+
+/* app demo */
+.appwrap{display:grid;grid-template-columns:minmax(0,1fr) 392px;gap:44px;align-items:center}
+@media(max-width:900px){.appwrap{grid-template-columns:1fr}.appwrap .phone{justify-self:center}}
+.feat{display:grid;gap:0}
+.feat div{padding:16px 0;border-top:1px solid var(--line)}
+.feat div:last-child{border-bottom:1px solid var(--line)}
+.feat b{font-family:var(--serif);font-size:1.15rem;display:block;margin-bottom:2px}
+.feat span{color:var(--muted);font-size:.95rem}
+.phone{width:100%;max-width:380px;height:720px;border-radius:40px;border:10px solid #050b09;background:var(--bg);position:relative;overflow:hidden;box-shadow:0 30px 60px -28px rgba(0,0,0,.55);display:flex;flex-direction:column}
+.ph-top{padding:14px 18px 10px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line)}
+.ph-top b{font-family:var(--serif);font-size:1.05rem}
+.ph-top span{margin-left:auto;color:var(--muted);font-size:.8rem}
+.panels{flex:1;overflow:hidden;position:relative}
+.panel{position:absolute;inset:0;overflow-y:auto;padding:16px 18px 20px;animation:pin .35s ease both}
+.panel[hidden]{display:none}
+@keyframes pin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tabbar{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);background:var(--surface)}
+.tabbar button{border:0;background:none;padding:9px 2px 10px;display:grid;justify-items:center;gap:2px;font-size:.7rem;color:var(--muted)}
+.tabbar button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tabbar button[aria-selected="true"]{color:var(--red)}
+.mcard-wrap{perspective:900px}
+.mcard{position:relative;height:196px;border-radius:18px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.3,.7,.2,1)}
+.mcard.flipped{transform:rotateY(180deg)!important}
+.mface{position:absolute;inset:0;border-radius:18px;padding:16px 18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;color:#f1f4ee;overflow:hidden;display:flex;flex-direction:column}
+.mface.fr{background:linear-gradient(135deg,#0b5e47,#073a2e 70%)}
+.mface.bk{background:linear-gradient(135deg,#7a1e15,#3a0b08);transform:rotateY(180deg);font-size:.86rem;gap:6px}
+.mface.fr::before{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:#d8362a;opacity:.9}
+.sheen{position:absolute;inset:0;border-radius:18px;background:radial-gradient(circle at var(--sx,50%) var(--sy,0%),rgba(255,235,180,.35),transparent 55%);pointer-events:none;mix-blend-mode:screen}
+.mface .nm{margin-top:auto;font-family:var(--serif);font-size:1.25rem;position:relative}
+.mface .meta{display:flex;justify-content:space-between;font-size:.78rem;opacity:.85;position:relative}
+.qr{position:absolute;right:14px;bottom:14px;width:62px;height:62px;background:#f4f1e6;border-radius:6px;padding:4px}
+.tiny{font-size:.82rem;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:14px}
+.bar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;margin:8px 0 4px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--jade),var(--gold));border-radius:99px;transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.pay{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:10px 0}
+.pay button{border:1.5px solid var(--line);background:transparent;border-radius:10px;padding:9px;font-size:.88rem}
+.pay button[aria-pressed="true"]{border-color:var(--jade);background:color-mix(in srgb,var(--jade) 16%,transparent)}
+.field{display:grid;gap:6px;margin-top:14px}
+.field label,.field .lab{font-size:.85rem;color:var(--muted)}
+.field input[type=date],.field select{font:inherit;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--text);width:100%}
+.stepper{display:flex;align-items:center;gap:12px}
+.stepper button{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:transparent;font-size:1.2rem;line-height:1}
+.stepper b{min-width:2ch;text-align:center;font-size:1.1rem}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:transparent;width:100%;text-align:left;margin-top:8px}
+.opt[aria-pressed="true"]{border-color:var(--jade);background:color-mix(in srgb,var(--jade) 14%,transparent)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin:16px 0 10px;font-family:var(--serif)}
+.total b{font-size:1.6rem}
+.btn.full{width:100%;justify-content:center}
+.toast{position:absolute;left:14px;right:14px;bottom:76px;background:var(--text);color:var(--bg);border-radius:14px;padding:12px 14px;font-size:.9rem;display:flex;gap:10px;align-items:center;transform:translateY(20px);opacity:0;pointer-events:none;transition:.35s}
+.toast.show{transform:none;opacity:1}
+.toast svg{width:22px;height:22px;flex:none;fill:none;stroke:var(--jade);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:30;stroke-dashoffset:30}
+.toast.show svg{animation:draw .6s .15s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.ev{display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.ev:first-of-type{border-top:0}
+.ev .d{text-align:center;font-family:var(--serif);line-height:1.05}
+.ev .d b{font-size:1.6rem;display:block}.ev .d span{font-size:.75rem;color:var(--red)}
+.ev h4{margin:0;font-size:.98rem;font-family:var(--sans);font-weight:600;line-height:1.25}
+.ev p{font-size:.8rem;color:var(--muted);margin-top:2px}
+.ev button{border:1.5px solid var(--jade);background:transparent;color:var(--jade);border-radius:999px;padding:6px 12px;font-size:.82rem}
+.ev button[aria-pressed="true"]{background:var(--jade);color:#fff}
+:root:not([data-theme="light"]) .ev button[aria-pressed="true"]{color:#06130e}
+.chat{display:flex;flex-direction:column;height:100%}
+.msgs{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding-bottom:8px}
+.m{max-width:86%;padding:9px 13px;border-radius:16px;font-size:.92rem;line-height:1.45;animation:pin .3s both}
+.m.bot{background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:4px}
+.m.me{background:var(--jade);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+:root:not([data-theme="light"]) .m.me{color:#06130e}
+.typing span{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--muted);margin:0 2px;animation:dot 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chips .chip{font-size:.8rem;padding:5px 10px}
+.send{display:flex;gap:8px}
+.send input{flex:1;font:inherit;padding:10px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--text);min-width:0}
+.send button{border:0;background:var(--btn);color:#fff;border-radius:999px;padding:0 16px}
+
+/* membership calc */
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,3vw,30px)}
+.slider{display:flex;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.slider input{flex:1;min-width:180px;accent-color:var(--red)}
+.slider b{font-family:var(--serif);font-size:1.3rem;min-width:7ch}
+.trow{display:grid;grid-template-columns:110px 1fr 128px;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.trow:first-of-type{border-top:0}
+.trow .n{font-weight:600}.trow .n small{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+.trow .tr{height:16px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.trow .tr i{display:block;height:100%;width:0;border-radius:99px;background:var(--jade);transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.trow .v{text-align:right;font-variant-numeric:tabular-nums;font-size:.95rem}
+@media(max-width:560px){.trow{grid-template-columns:1fr 100px}.trow .tr{grid-column:1/-1;order:3}}
+
+/* changes */
+.chg{display:grid;gap:0}
+.chg>div{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:18px 0;border-top:1px solid var(--line)}
+.chg>div:last-child{border-bottom:1px solid var(--line)}
+.chg .was{color:var(--muted)}
+.chg .now b{font-family:var(--serif);font-size:1.12rem;display:block}
+@media(max-width:640px){.chg>div{grid-template-columns:1fr;gap:4px}}
+footer{padding:44px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+footer .zz{font-family:var(--serif);color:var(--text);font-size:1.1rem;margin-bottom:8px}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap in">
+    <a class="brand" href="#top" aria-label="Bangladesh China Club">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#0b6e52"/><circle cx="18" cy="20" r="8.5" fill="#e0412f"/><path d="M4 33 Q20 19 36 33" fill="none" stroke="#e8b04a" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span><b>BCC Club</b><small>বাংলাদেশ চীন ক্লাব · 孟中俱乐部</small></span>
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#words" data-i18n="n_words">Words</a>
+      <a href="#studio" data-i18n="n_studio">Pattern studio</a>
+      <a href="#festivals" data-i18n="n_fest">Festivals</a>
+      <a href="#journey" data-i18n="n_route">Journey</a>
+      <a href="#app" data-i18n="n_app">Club app</a>
+      <a href="#join" data-i18n="n_join">Membership</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" aria-pressed="true">EN</button>
+      <button data-lang="bn" aria-pressed="false">বাং</button>
+      <button data-lang="zh" aria-pressed="false">中文</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-label="Welcome">
+  <svg class="scene" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050d0a"/><stop offset=".55" stop-color="#11302a"/><stop offset=".85" stop-color="#5a3a2c"/><stop offset="1" stop-color="#c25a3a"/></linearGradient>
+      <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#12302a"/><stop offset="1" stop-color="#050f0c"/></linearGradient>
+      <radialGradient id="sunG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff7a52"/><stop offset="1" stop-color="#d63a2f"/></radialGradient>
+      <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ff6a4a" stop-opacity=".5"/><stop offset="1" stop-color="#ff6a4a" stop-opacity="0"/></radialGradient>
+      <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb45a" stop-opacity=".55"/><stop offset="1" stop-color="#ffb45a" stop-opacity="0"/></radialGradient>
+      <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+      <g id="palm">
+        <path d="M0 0 C3 -30 1 -60 8 -92" stroke="#040b08" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M8 -92 C-10 -108 -30 -100 -44 -84 M8 -92 C-4 -112 -20 -118 -38 -112 M8 -92 C20 -112 36 -112 52 -100 M8 -92 C26 -100 42 -92 54 -76 M8 -92 C8 -112 14 -120 22 -124" stroke="#040b08" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </g>
+    </defs>
+    <rect width="1200" height="430" fill="url(#sky)"/>
+    <g id="stars"></g>
+    <circle cx="640" cy="430" r="330" fill="url(#glow)"/>
+    <g class="sun"><circle cx="640" cy="430" r="150" fill="url(#sunG)"/></g>
+    <!-- China side -->
+    <path d="M760 430 L760 396 C800 392 812 330 846 330 C876 330 874 372 898 366 C922 360 924 280 958 280 C990 280 990 346 1014 352 C1040 320 1050 292 1076 292 C1110 292 1118 380 1200 388 L1200 430Z" fill="#163a31" opacity=".8"/>
+    <path d="M850 430 L850 380 C880 378 888 312 918 312 C944 312 944 360 966 352 C988 344 992 250 1024 250 C1052 250 1054 330 1078 340 C1100 310 1112 270 1138 270 C1168 270 1172 360 1200 366 L1200 430Z" fill="#0b211b"/>
+    <g transform="translate(1024 250)" fill="#050d0a">
+      <rect x="-5" y="-6" width="10" height="8"/><path d="M-16 -6 L16 -6 L22 -1 L-22 -1Z"/>
+      <rect x="-4" y="-18" width="8" height="8"/><path d="M-13 -18 L13 -18 L18 -13 L-18 -13Z"/>
+      <rect x="-3" y="-28" width="6" height="7"/><path d="M-10 -28 L10 -28 L14 -23 L-14 -23Z"/><path d="M0 -40 L0 -28" stroke="#050d0a" stroke-width="2"/>
+    </g>
+    <!-- Bangladesh side -->
+    <path d="M0 430 L0 408 C90 402 190 414 290 406 C360 402 430 414 500 430Z" fill="#06130f"/>
+    <use href="#palm" transform="translate(60 412) scale(1.15)"/>
+    <use href="#palm" transform="translate(112 410) scale(.8)"/>
+    <use href="#palm" transform="translate(210 408) scale(.95)"/>
+    <use href="#palm" transform="translate(330 408) scale(.62)"/>
+    <rect y="300" width="1200" height="130" fill="url(#mist)"/>
+    <rect y="430" width="1200" height="270" fill="url(#water)"/>
+    <g id="refl" class="refl"></g>
+    <g id="waves"></g>
+    <!-- nouka -->
+    <g class="boat-b"><g class="bob">
+      <path d="M-70 0 C-60 26 56 26 68 0 C76 -10 82 -18 88 -32 C64 -14 -54 -14 -84 -36 C-80 -18 -76 -8 -70 0Z" fill="#2c1a10"/>
+      <path d="M-68 -3 C-40 8 40 8 70 -3" stroke="#d8362a" stroke-width="3" fill="none"/>
+      <path d="M-24 -14 C-24 -44 26 -44 26 -14Z" fill="#7a5a30"/>
+      <line x1="-40" y1="-14" x2="-40" y2="-100" stroke="#1d110a" stroke-width="3"/>
+      <path d="M-38 -98 C14 -76 22 -48 30 -20 L-38 -18Z" fill="#f1e3c4"/>
+      <path d="M-38 -70 C-8 -60 4 -52 10 -44 L-38 -42Z" fill="#d8362a" opacity=".85"/>
+      <path d="M-38 -48 L22 -34 L-38 -30Z" fill="#c9962f" opacity=".8"/>
+    </g></g>
+    <!-- junk -->
+    <g class="boat-c"><g class="bob" style="animation-delay:-1.4s">
+      <path d="M-76 0 L74 0 C86 -8 92 -22 96 -38 L-90 -34 C-86 -20 -82 -8 -76 0Z" fill="#6e1b14"/>
+      <path d="M-84 -26 L90 -28" stroke="#e8b04a" stroke-width="3"/>
+      <line x1="-24" y1="-34" x2="-24" y2="-134" stroke="#1d110a" stroke-width="3"/>
+      <line x1="48" y1="-34" x2="48" y2="-104" stroke="#1d110a" stroke-width="3"/>
+      <path d="M-24 -130 C6 -136 26 -128 34 -122 L34 -36 L-24 -36Z" fill="#a8261c"/>
+      <path d="M48 -100 L84 -94 L84 -36 L48 -36Z" fill="#a8261c"/>
+      <g stroke="#2a0d09" stroke-width="1.6" opacity=".75"><path d="M-24 -108H34M-24 -86H34M-24 -64H34M-24 -44H34M48 -80H84M48 -60H84M48 -44H84"/></g>
+    </g></g>
+    <g id="shapla"></g>
+    <g id="lanterns"></g>
+  </svg>
+  <div class="copy">
+    <div class="names" lang="bn"><span>বাংলাদেশ চীন ক্লাব</span><span lang="zh">孟中俱乐部</span><span lang="en">Bangladesh China Club Ltd</span></div>
+    <h1 data-i18n="h1">Bangladesh and China, over one cup of tea.</h1>
+    <p class="sub" data-i18n="hsub">A members' club in Dhaka, reimagined as a living cultural space. This is a design demo: every animation below can be touched.</p>
+    <div class="cta">
+      <a class="btn" href="#app" data-i18n="cta1">Try the club app</a>
+      <a class="btn ghost" href="#studio" data-i18n="cta2">Play with the culture</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORDS -->
+<section id="words"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="words_h">One word, two scripts</h2><p data-i18n="words_p">Tap a card. Bangla and Mandarin share more than you would guess.</p></div>
+  <div class="words" id="wordGrid"></div>
+</div></section>
+
+<!-- STUDIO -->
+<section id="studio" style="background:var(--surface)"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="studio_h">Pattern studio</h2><p data-i18n="studio_p">Draw once. The canvas repeats your line around the centre, the way alpona and Chinese window lattices do.</p></div>
+  <div class="studio">
+    <div class="padbox"><canvas id="pad" aria-label="Symmetry drawing canvas"></canvas><div class="hint" id="padHint">Draw here with a finger or mouse</div></div>
+    <div class="ctrl">
+      <div><h3>Fold</h3><div class="row" id="symRow">
+        <button class="chip" data-n="6" aria-pressed="true">6 · alpona</button>
+        <button class="chip" data-n="8" aria-pressed="false">8 · lattice</button>
+        <button class="chip" data-n="12" aria-pressed="false">12 · lotus</button></div></div>
+      <div><h3>Ink</h3><div class="row" id="inkRow">
+        <button class="sw" data-c="#37c597" style="background:#37c597" aria-label="Jade" aria-pressed="false"></button>
+        <button class="sw" data-c="#ef5a45" style="background:#ef5a45" aria-label="Vermilion" aria-pressed="false"></button>
+        <button class="sw" data-c="#e8b04a" style="background:#e8b04a" aria-label="Gold" aria-pressed="true"></button>
+        <button class="sw" data-c="#f4efe2" style="background:#f4efe2" aria-label="Rice white" aria-pressed="false"></button></div></div>
+      <div class="row">
+        <button class="btn" id="bloom">Bloom a flower</button>
+        <button class="btn ghost" id="undo" style="color:var(--text)">Undo</button>
+        <button class="btn ghost" id="clr" style="color:var(--text)">Clear</button>
+      </div>
+      <label class="row" style="align-items:center;gap:10px"><input type="checkbox" id="mir" checked> <span>Mirror each petal</span></label>
+      <p class="note">Alpona is painted with rice paste on Bengali doorsteps. Chinese paper-cut and lattice windows use the same love of repeating, folded symmetry.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- FESTIVALS -->
+<section id="festivals"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="fest_h">Festival stage</h2><p data-i18n="fest_p">Pick a celebration. Tap the stage to join in.</p></div>
+  <div class="fest-tabs" id="festTabs" role="group" aria-label="Festivals">
+    <button class="chip" data-m="cny" aria-pressed="true">Chinese New Year</button>
+    <button class="chip" data-m="autumn" aria-pressed="false">Mid-Autumn</button>
+    <button class="chip" data-m="boishakh" aria-pressed="false">Pohela Boishakh</button>
+    <button class="chip" data-m="victory" aria-pressed="false">Victory Day</button>
+  </div>
+  <div class="stagebox"><canvas id="stage" aria-label="Animated festival scene"></canvas></div>
+  <div class="fest-cap"><h3 id="fcT"></h3><span class="nm" id="fcN"></span><p id="fcP"></p></div>
+</div></section>
+
+<!-- JOURNEY -->
+<section id="journey" style="background:var(--surface)"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="route_h">Fourteen centuries of crossings</h2><p data-i18n="route_p">Press play to follow the road from monks and envoys to the Padma Bridge.</p></div>
+  <div class="route" style="background:var(--bg)">
+    <svg viewBox="0 0 1000 340" role="img" aria-label="Animated timeline of Bangladesh China history">
+      <text x="20" y="320" fill="var(--jade)" font-family="var(--serif)" font-size="22">বাংলা</text>
+      <text x="980" y="320" fill="var(--red)" font-family="var(--serif)" font-size="22" text-anchor="end">中国</text>
+      <path id="rBase" d="M60 240 C160 240 180 110 280 110 S420 260 520 240 S640 100 740 130 S860 240 950 190" fill="none" stroke="var(--line)" stroke-width="10" stroke-linecap="round"/>
+      <path id="rProg" d="M60 240 C160 240 180 110 280 110 S420 260 520 240 S640 100 740 130 S860 240 950 190" fill="none" stroke="var(--jade)" stroke-width="10" stroke-linecap="round"/>
+      <g id="rNodes"></g>
+      <g id="rTrav"><circle r="16" fill="#e0412f" opacity=".25"><animate attributeName="r" values="12;22;12" dur="2s" repeatCount="indefinite"/></circle><circle r="9" fill="#e0412f" stroke="#e8b04a" stroke-width="3"/></g>
+    </svg>
+    <div class="rcap" aria-live="polite"><div class="yr" id="rY"></div><div><h3 id="rT"></h3><div class="where" id="rW"></div><p id="rD"></p></div></div>
+    <div class="rctrl"><button class="btn" id="rPlay">Play journey</button><button class="btn ghost" id="rPrev" style="color:var(--text)">Previous stop</button><button class="btn ghost" id="rNext" style="color:var(--text)">Next stop</button></div>
+  </div>
+</div></section>
+
+<!-- APP -->
+<section id="app"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="app_h">The club in your pocket</h2><p data-i18n="app_p">A working prototype with sample data. Nothing here is saved or sent anywhere.</p></div>
+  <div class="appwrap">
+    <div class="feat">
+      <div><b>Digital member card</b><span>Tilt it, flip it, scan it at the gate. Replaces plastic cards and paper dues books.</span></div>
+      <div><b>Pay the way members already pay</b><span>bKash for Dhaka, Alipay and WeChat Pay for Chinese members and guests, plus cards.</span></div>
+      <div><b>Guest house and tables in a minute</b><span>Member rates apply automatically. Airport pick-up and a welcome tea set are one tap.</span></div>
+      <div><b>Events with a live seat count</b><span>Tournaments, masterclasses and banquets, each with an RSVP.</span></div>
+      <div><b>Concierge in three languages</b><span>Ask in English, Bangla or Mandarin and get an answer in the same language. This demo uses scripted replies; a real build would connect a language model to club data.</span></div>
+    </div>
+    <div class="phone" id="phone">
+      <div class="ph-top"><svg viewBox="0 0 40 40" width="26" height="26" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#0b6e52"/><circle cx="18" cy="20" r="8.5" fill="#e0412f"/></svg><b>BCC Club</b><span>Sample data</span></div>
+      <div class="panels">
+        <!-- MEMBER -->
+        <div class="panel" id="p-member" role="tabpanel">
+          <div class="mcard-wrap"><div class="mcard" id="mcard" tabindex="0" role="button" aria-label="Member card. Press to flip">
+            <div class="mface fr">
+              <div class="meta" style="position:relative"><span>Permanent member</span><span>BCC-0482</span></div>
+              <div class="nm">Anika Rahman<br><span style="font-size:.95rem;opacity:.85">安妮卡 · আনিকা রহমান</span></div>
+              <div class="qr" id="qr"></div>
+              <div class="sheen"></div>
+            </div>
+            <div class="mface bk"><b style="font-family:var(--serif);font-size:1.1rem">Your benefits</b>
+              <span>Guests: up to 4 per visit</span><span>Member rates: guest house and dining</span><span>Priority RSVP for club events</span><span>Reciprocal clubs: coming soon</span><div class="sheen"></div></div>
+          </div></div>
+          <p class="tiny" style="margin-top:8px;text-align:center">Tap the card to flip it</p>
+          <div class="box"><div style="display:flex;justify-content:space-between"><b>Bridge points</b><span><b id="pts">1,240</b> / 1,500</span></div>
+            <div class="bar"><i id="ptsBar" style="width:0"></i></div>
+            <span class="tiny">Proposed: earn points when you dine, stay or join an event. 260 more for a free seat at the next masterclass.</span></div>
+          <div class="box"><div style="display:flex;justify-content:space-between"><b>October dues</b><b>৳2,000</b></div>
+            <div class="pay" id="payRow">
+              <button aria-pressed="true">bKash</button><button aria-pressed="false">Alipay</button><button aria-pressed="false">WeChat Pay</button><button aria-pressed="false">Card</button></div>
+            <button class="btn full" id="payBtn">Pay ৳2,000</button></div>
+        </div>
+        <!-- STAY -->
+        <div class="panel" id="p-stay" role="tabpanel" hidden>
+          <h3 style="font-size:1.3rem">Guest house</h3><p class="tiny">Twelve rooms and suites. Rates below are sample figures.</p>
+          <div class="field"><label for="ci">Check-in</label><input type="date" id="ci"></div>
+          <div class="field"><span class="lab">Nights</span><div class="stepper"><button id="nM" aria-label="Fewer nights">−</button><b id="nV">2</b><button id="nP" aria-label="More nights">+</button><span class="tiny" id="co"></span></div></div>
+          <div class="field"><span class="lab">Room</span><div id="rooms"></div></div>
+          <button class="opt" id="optPick" aria-pressed="false"><span>Airport pick-up</span><b>৳1,500</b></button>
+          <button class="opt" id="optTea" aria-pressed="true"><span>Welcome tea set (চা · 茶)</span><b>Free</b></button>
+          <div class="total"><span>Member total <small class="tiny">(15% off)</small></span><b id="stTot">৳0</b></div>
+          <button class="btn full" id="stBtn">Request booking</button>
+        </div>
+        <!-- DINE -->
+        <div class="panel" id="p-dine" role="tabpanel" hidden>
+          <h3 style="font-size:1.3rem">Reserve a table</h3>
+          <div class="field"><span class="lab">Where</span><div class="row" id="venues">
+            <button class="chip" aria-pressed="true">Silk Route</button><button class="chip" aria-pressed="false">Lantern Bar</button><button class="chip" aria-pressed="false">Tea Garden</button></div></div>
+          <p class="tiny" id="venueNote" style="margin-top:8px">Sichuan, Cantonese and Bangladeshi kitchens. Peking duck is carved at the table; kacchi on Fridays.</p>
+          <div class="field"><span class="lab">Guests</span><div class="stepper"><button id="gM" aria-label="Fewer guests">−</button><b id="gV">4</b><button id="gP" aria-label="More guests">+</button></div></div>
+          <div class="field"><span class="lab">Time</span><div class="row" id="slots"></div></div>
+          <button class="opt" id="optPair" aria-pressed="false"><span>Tea pairing with the meal</span><b>+৳600 pp</b></button>
+          <div class="total"><span>Table for <span id="dSum"></span></span></div>
+          <button class="btn full" id="dBtn">Reserve table</button>
+        </div>
+        <!-- EVENTS -->
+        <div class="panel" id="p-events" role="tabpanel" hidden>
+          <h3 style="font-size:1.3rem;margin-bottom:6px">Coming up</h3><div id="evList"></div>
+        </div>
+        <!-- CHAT -->
+        <div class="panel" id="p-chat" role="tabpanel" hidden style="display:flex;flex-direction:column">
+          <div class="chat"><div class="msgs" id="msgs"></div>
+            <div class="chips" id="chatChips"></div>
+            <form class="send" id="chatForm" onsubmit="return false"><input id="chatIn" placeholder="Ask in English, বাংলা or 中文" aria-label="Message"><button id="chatGo" type="button">Send</button></form></div>
+        </div>
+      </div>
+      <div class="toast" id="toast"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg><span id="toastTx"></span></div>
+      <div class="tabbar" role="tablist" id="tabbar">
+        <button role="tab" aria-selected="true" data-p="member"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg><span data-i18n="t_member">Member</span></button>
+        <button role="tab" aria-selected="false" data-p="stay"><svg viewBox="0 0 24 24"><path d="M3 18V8M3 14h18v4M21 14v-3a3 3 0 0 0-3-3h-7v6"/></svg><span data-i18n="t_stay">Stay</span></button>
+        <button role="tab" aria-selected="false" data-p="dine"><svg viewBox="0 0 24 24"><path d="M6 3v8M9 3v8M6 7h3M7.5 11v10M17 3c-2 2-2 6 0 8v10"/></svg><span data-i18n="t_dine">Dine</span></button>
+        <button role="tab" aria-selected="false" data-p="events"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><span data-i18n="t_events">Events</span></button>
+        <button role="tab" aria-selected="false" data-p="chat"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span data-i18n="t_chat">Concierge</span></button>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- MEMBERSHIP -->
+<section id="join" style="background:var(--surface)"><div class="wrap">
+  <div class="sec-head"><h2 data-i18n="join_h">Membership</h2><p data-i18n="join_p">Compare what each tier costs over time. Drag the slider.</p></div>
+  <div class="calc">
+    <div class="slider"><label for="yrs">Years of membership</label><input type="range" id="yrs" min="1" max="10" value="5"><b id="yrsV">5 years</b></div>
+    <div id="tiers"></div>
+    <p class="note" style="margin-top:14px">Fees as listed on the current club website: admission plus monthly subscription. Diplomatic membership is billed annually and Temporary membership covers six months, so its cost does not change with the slider. Every application also needs a proposer, a seconder and committee approval.</p>
+  </div>
+</div></section>
+
+<!-- WHAT CHANGED -->
+<section><div class="wrap">
+  <div class="sec-head"><h2>What changed from the current site</h2><p>The current site is a clear, well-written brochure. This demo keeps its facts and turns them into things people can do.</p></div>
+  <div class="chg">
+    <div><p class="was">Bangla, Chinese and English appear as labels.</p><p class="now"><b>One switch changes the whole page</b>Three full interfaces, and the concierge answers in the language you write in.</p></div>
+    <div><p class="was">A scrolling strip of shared words, like tea and sugar.</p><p class="now"><b>Flip cards with pronunciation</b>The same words, now tappable, with the story of why chini means sugar.</p></div>
+    <div><p class="was">A list of dates the club keeps.</p><p class="now"><b>A stage for each festival</b>Fireworks, sky lanterns, a dawn with confetti, and a waving flag you can tap.</p></div>
+    <div><p class="was">A numbered timeline of crossings.</p><p class="now"><b>A journey you can play</b>A traveller walks the road from Xuanzang to the Padma Bridge.</p></div>
+    <div><p class="was">Sign in for members and staff.</p><p class="now"><b>A phone app people would open daily</b>Card, dues, rooms, tables, events and a concierge.</p></div>
+    <div><p class="was">A table of membership fees.</p><p class="now"><b>A cost calculator</b>See each tier's total over one to ten years.</p></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="zz">বাংলাদেশ–চীন মৈত্রী · 孟中友好</div>
+  <p>Concept demo for Bangladesh China Club Limited, Gulshan, Dhaka. Not an official club product. Member names, room rates, event seat counts and points are sample data. Club facts, event dates and membership fees follow the current public website.</p>
+</div></footer>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var NS='http://www.w3.org/2000/svg';
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function mkRnd(s){return function(){s=(s*16807)%2147483647;return (s-1)/2147483646}}
+var taka=function(n){return '৳'+new Intl.NumberFormat('en-IN').format(Math.round(n))};
+
+/* ---------- i18n ---------- */
+var I={
+en:{n_words:'Words',n_studio:'Pattern studio',n_fest:'Festivals',n_route:'Journey',n_app:'Club app',n_join:'Membership',
+ h1:'Bangladesh and China, over one cup of tea.',hsub:'A members\u2019 club in Dhaka, reimagined as a living cultural space. This is a design demo: every animation below can be touched.',
+ cta1:'Try the club app',cta2:'Play with the culture',words_h:'One word, two scripts',words_p:'Tap a card. Bangla and Mandarin share more than you would guess.',
+ studio_h:'Pattern studio',studio_p:'Draw once. The canvas repeats your line around the centre, the way alpona and Chinese window lattices do.',
+ fest_h:'Festival stage',fest_p:'Pick a celebration. Tap the stage to join in.',route_h:'Fourteen centuries of crossings',route_p:'Press play to follow the road from monks and envoys to the Padma Bridge.',
+ app_h:'The club in your pocket',app_p:'A working prototype with sample data. Nothing here is saved or sent anywhere.',join_h:'Membership',join_p:'Compare what each tier costs over time. Drag the slider.',
+ t_member:'Member',t_stay:'Stay',t_dine:'Dine',t_events:'Events',t_chat:'Concierge'},
+bn:{n_words:'শব্দ',n_studio:'নকশা স্টুডিও',n_fest:'উৎসব',n_route:'যাত্রাপথ',n_app:'ক্লাব অ্যাপ',n_join:'সদস্যপদ',
+ h1:'বাংলাদেশ ও চীন, এক পেয়ালা চায়ে।',hsub:'ঢাকার একটি সদস্য ক্লাব, এবার প্রাণবন্ত সাংস্কৃতিক অঙ্গন হিসেবে নতুনভাবে ভাবা। এটি একটি ডেমো, নিচের প্রতিটি অ্যানিমেশন নিজে ছুঁয়ে দেখা যায়।',
+ cta1:'ক্লাব অ্যাপ দেখুন',cta2:'সংস্কৃতির সঙ্গে খেলুন',words_h:'এক শব্দ, দুই লিপি',words_p:'কার্ডে ছুঁয়ে দেখুন। বাংলা আর ম্যান্ডারিনের মিল অনেক বেশি।',
+ studio_h:'নকশা স্টুডিও',studio_p:'একবার আঁকুন। আলপনা আর চীনা জানালার জালির মতোই ক্যানভাস আপনার রেখাকে কেন্দ্রের চারদিকে ঘুরিয়ে আঁকবে।',
+ fest_h:'উৎসবের মঞ্চ',fest_p:'একটি উৎসব বেছে নিন। মঞ্চে ছুঁয়ে অংশ নিন।',route_h:'চৌদ্দশ বছরের আসা-যাওয়া',route_p:'ভিক্ষু আর দূতদের পথ ধরে পদ্মা সেতু পর্যন্ত যেতে প্লে চাপুন।',
+ app_h:'পকেটে আপনার ক্লাব',app_p:'নমুনা তথ্যসহ একটি কার্যকর প্রোটোটাইপ। এখানকার কিছুই সংরক্ষিত বা পাঠানো হয় না।',join_h:'সদস্যপদ',join_p:'সময়ের সঙ্গে প্রতিটি সদস্যপদের খরচ তুলনা করুন। স্লাইডার টানুন।',
+ t_member:'সদস্য',t_stay:'থাকা',t_dine:'খাওয়া',t_events:'অনুষ্ঠান',t_chat:'সহায়ক'},
+zh:{n_words:'词语',n_studio:'纹样工坊',n_fest:'节日',n_route:'旅程',n_app:'俱乐部应用',n_join:'会员',
+ h1:'孟加拉国与中国,共饮一杯茶。',hsub:'达卡的会员俱乐部,被重新构想为一个活的文化空间。这是设计演示,下面的每个动画都可以互动。',
+ cta1:'体验俱乐部应用',cta2:'玩转文化',words_h:'一词,两种文字',words_p:'点一点卡片,孟加拉语和汉语的相通之处比你想的多。',
+ studio_h:'纹样工坊',studio_p:'画一笔,画布会像阿尔波娜和中式窗棂一样,把线条绕中心重复。',
+ fest_h:'节日舞台',fest_p:'选一个节日,点击舞台一起庆祝。',route_h:'十四个世纪的往来',route_p:'点击播放,跟随僧侣与使节的足迹,一路走到帕德玛大桥。',
+ app_h:'口袋里的俱乐部',app_p:'带示例数据的可操作原型。这里的内容不会被保存或发送。',join_h:'会员',join_p:'对比各会员类别随时间的总费用,拖动滑块。',
+ t_member:'会员',t_stay:'住宿',t_dine:'餐饮',t_events:'活动',t_chat:'礼宾'}
+};
+function setLang(l){
+  document.documentElement.lang=l;
+  $$('[data-i18n]').forEach(function(e){var v=I[l][e.getAttribute('data-i18n')];if(v)e.textContent=v});
+  $$('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===l)});
+}
+$$('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'))})});
+
+/* ---------- Hero scene ---------- */
+(function(){
+  var r=mkRnd(42),g;
+  g=$('#stars');for(var i=0;i<46;i++){el('circle',{cx:r()*1200,cy:r()*330,r:.6+r()*1.1,fill:'#fff6e0',class:'star',style:'animation-delay:'+(-r()*4)+'s;animation-duration:'+(2.5+r()*3)+'s'},g)}
+  g=$('#lanterns');
+  for(var j=0;j<9;j++){
+    var x=70+j*128+r()*50,y=360+r()*170,dur=24+r()*14;
+    var o=el('g',{transform:'translate('+x.toFixed(0)+' '+y.toFixed(0)+') scale('+(.8+r()*.7).toFixed(2)+')'},g);
+    var f=el('g',{class:'lt',style:'animation-duration:'+dur+'s;animation-delay:'+(-r()*dur)+'s'},o);
+    var s=el('g',{class:'sway',style:'animation-delay:'+(-r()*4)+'s'},f);
+    el('circle',{r:30,fill:'url(#halo)'},s);
+    el('path',{d:'M-11 -14 C-16 -4 -16 8 -10 15 L10 15 C16 8 16 -4 11 -14Z',fill:'#d8362a'},s);
+    el('path',{d:'M0 -14 L0 15 M-6 -13 C-9 -2 -8 8 -5 15 M6 -13 C9 -2 8 8 5 15',stroke:'rgba(255,205,130,.4)','stroke-width':1,fill:'none'},s);
+    el('rect',{x:-8,y:-18,width:16,height:4,rx:1,fill:'#e8b04a'},s);el('rect',{x:-8,y:15,width:16,height:3,rx:1,fill:'#e8b04a'},s);
+    el('path',{d:'M0 18 L0 31 M-2 31 L2 31',stroke:'#e8b04a','stroke-width':1.4,fill:'none'},s);
+  }
+  g=$('#waves');
+  for(var k=0;k<18;k++){var wx=r()*1200-60,wy=452+r()*230,w=50+r()*90;
+    el('path',{d:'M'+wx+' '+wy+' q '+w/4+' -6 '+w/2+' 0 t '+w/2+' 0',fill:'none',stroke:'rgba(255,255,255,'+(.06+r()*.1)+')','stroke-width':1.4,class:'wave',style:'animation-delay:'+(-r()*8)+'s;animation-duration:'+(6+r()*6)+'s'},g)}
+  g=$('#refl');
+  for(var m=0;m<10;m++){var rw=250-m*18+(m%2)*16;el('rect',{x:640-rw/2,y:440+m*23,width:rw,height:5,rx:2.5,fill:'#e0412f',opacity:.6-m*.05,class:'shim',style:'animation-delay:'+(-m*.3)+'s'},g)}
+  g=$('#shapla');
+  [[330,600,1],[760,640,1.3],[520,665,.8]].forEach(function(p){
+    var q=el('g',{transform:'translate('+p[0]+' '+p[1]+') scale('+p[2]+')'},g);
+    var b=el('g',{class:'bob',style:'animation-duration:'+(3+p[2])+'s'},q);
+    el('ellipse',{rx:26,ry:6,fill:'#0d3a2d'},b);
+    [-40,-18,0,18,40].forEach(function(a){el('path',{d:'M0 0 C-7 -10 -5 -22 0 -26 C5 -22 7 -10 0 0Z',fill:'#f6efe0',transform:'translate(0 -2) rotate('+a+')'},b)});
+    el('circle',{cy:-5,r:3,fill:'#e8b04a'},b);
+  });
+})();
+
+/* ---------- Words ---------- */
+(function(){
+  var W=[
+   ['চা','茶','tea','cha · chá','The same sound in both languages. Both words travelled the Silk Route.',1],
+   ['চিনি','糖','sugar','chini · táng','Bangla chini means “from China”, named for where refined sugar came from.'],
+   ['বন্ধু','朋友','friend','bondhu · péngyou','The word on the club\u2019s front door.'],
+   ['স্বাগতম','欢迎','welcome','shagotom · huānyíng','Said when a guest steps in.'],
+   ['মৈত্রী','友谊','friendship','moitri · yǒuyì','The word used for the Bangladesh–China bond.'],
+   ['সেতু','桥','bridge','shetu · qiáo','Think of the Padma Bridge, and of this club.'],
+   ['নদী','河','river','nodi · hé','Bangladesh is a delta. China\u2019s great rivers are older than its cities.'],
+   ['ধন্যবাদ','谢谢','thank you','dhonnobad · xièxie','Use it twice. Once in each language.']];
+  var g=$('#wordGrid');
+  W.forEach(function(w){
+    var b=document.createElement('button');b.className='flip';b.setAttribute('aria-pressed','false');
+    b.innerHTML='<span class="in"><span class="face f">'+(w[5]?'<svg class="steam" viewBox="0 0 34 40"><path d="M8 38c-4-6 4-10 0-16s4-10 0-16"/><path d="M17 38c-4-6 4-10 0-16s4-10 0-16"/><path d="M26 38c-4-6 4-10 0-16s4-10 0-16"/></svg>':'')+'<span class="bn" lang="bn">'+w[0]+'</span><span class="zh" lang="zh">'+w[1]+'</span></span><span class="face b"><span class="meaning">'+w[2]+'</span><small>'+w[3]+'</small><small>'+w[4]+'</small></span></span>';
+    b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true')});
+    g.appendChild(b);
+  });
+})();
+
+/* ---------- Pattern studio ---------- */
+(function(){
+  var cv=$('#pad'),cx=cv.getContext('2d'),box=cv.parentNode,hint=$('#padHint');
+  var strokes=[],cur=null,N=6,color='#e8b04a',mirror=true,S=300,dpr=1,bloomRaf=0;
+  function size(){var r=box.getBoundingClientRect();dpr=Math.min(window.devicePixelRatio||1,2);S=r.width;cv.width=S*dpr;cv.height=S*dpr;redraw()}
+  function seg(a,b,s){
+    cx.save();cx.setTransform(dpr,0,0,dpr,0,0);cx.translate(S/2,S/2);
+    cx.strokeStyle=s.color;cx.lineWidth=2.2;cx.lineCap='round';cx.shadowColor=s.color;cx.shadowBlur=7;
+    for(var k=0;k<s.n;k++){
+      for(var m=0;m<(s.mirror?2:1);m++){
+        cx.save();cx.rotate(k*2*Math.PI/s.n);if(m)cx.scale(1,-1);
+        cx.beginPath();cx.moveTo(a[0]*S/2,a[1]*S/2);cx.lineTo(b[0]*S/2,b[1]*S/2);cx.stroke();cx.restore();
+      }
+    }
+    cx.restore();
+  }
+  function redraw(){cx.clearRect(0,0,cv.width,cv.height);strokes.forEach(function(s){for(var i=1;i<s.pts.length;i++)seg(s.pts[i-1],s.pts[i],s)})}
+  function pt(e){var r=cv.getBoundingClientRect();return [(e.clientX-r.left)/r.width*2-1,(e.clientY-r.top)/r.height*2-1]}
+  cv.addEventListener('pointerdown',function(e){cv.setPointerCapture(e.pointerId);cur={pts:[pt(e)],color:color,n:N,mirror:mirror};strokes.push(cur);hint.style.opacity=0});
+  cv.addEventListener('pointermove',function(e){if(!cur)return;var p=pt(e);seg(cur.pts[cur.pts.length-1],p,cur);cur.pts.push(p)});
+  function end(){cur=null}
+  cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+  $$('#symRow .chip').forEach(function(b){b.addEventListener('click',function(){N=+b.getAttribute('data-n');$$('#symRow .chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)})})});
+  $$('#inkRow .sw').forEach(function(b){b.addEventListener('click',function(){color=b.getAttribute('data-c');$$('#inkRow .sw').forEach(function(x){x.setAttribute('aria-pressed',x===b)})})});
+  $('#mir').addEventListener('change',function(e){mirror=e.target.checked});
+  $('#undo').addEventListener('click',function(){strokes.pop();redraw();if(!strokes.length)hint.style.opacity=1});
+  $('#clr').addEventListener('click',function(){strokes=[];redraw();hint.style.opacity=1});
+  $('#bloom').addEventListener('click',function(){
+    if(bloomRaf)return;hint.style.opacity=0;
+    var passes=[[.88,'#37c597',3],[.58,'#ef5a45',5],[.32,'#e8b04a',7]],pi=0;
+    function run(){
+      if(pi>=passes.length){bloomRaf=0;return}
+      var P=passes[pi++],s={pts:[],color:P[1],n:N,mirror:mirror},th=0;strokes.push(s);
+      (function step(){
+        for(var i=0;i<3&&th<=Math.PI*2;i++){var rr=P[0]*Math.cos(P[2]*th),p=[rr*Math.cos(th),rr*Math.sin(th)];
+          if(s.pts.length)seg(s.pts[s.pts.length-1],p,s);s.pts.push(p);th+=.045}
+        if(th<=Math.PI*2){bloomRaf=requestAnimationFrame(step)}else run();
+      })();
+    }
+    run();
+  });
+  window.addEventListener('resize',size);size();
+})();
+
+/* ---------- Festival stage ---------- */
+(function(){
+  var cv=$('#stage'),cx=cv.getContext('2d'),W=800,H=450,dpr=1,mode='cny',t=0,last=0,vis=true;
+  var rockets=[],sparks=[],lants=[],petals=[],nextFw=0.6,flagImg=null;
+  var INFO={
+    cny:['Chinese New Year','春节 · চীনা নববর্ষ','Late January or February. Families hang red lanterns and set off fireworks. The character 福 (fortune) is hung upside down on purpose, because “upside down” sounds like “arrives” in Chinese. Tap to launch a firework.'],
+    autumn:['Mid-Autumn Festival','中秋节 · মধ্য-শরৎ উৎসব','The 15th day of the eighth lunar month, around late September or early October. Families gather under the full moon, share mooncakes and release lanterns. Tap to send up a lantern.'],
+    boishakh:['Pohela Boishakh','পহেলা বৈশাখ · 孟加拉新年','14 April, the Bengali New Year. People wear red and white, paint alpona and march in colourful processions, and boats still cross the river at dawn. Tap for a burst of confetti.'],
+    victory:['Victory Day','বিজয় দিবস · 胜利日','16 December, when Bangladesh marks its 1971 victory. The flag is a red disc, slightly toward the hoist, on deep green. Tap the night sky for fireworks.']
+  };
+  function setInfo(){var i=INFO[mode];$('#fcT').textContent=i[0];$('#fcN').textContent=i[1];$('#fcP').textContent=i[2]}
+  function size(){var r=cv.getBoundingClientRect();dpr=Math.min(window.devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);buildFlag();if(reduce){warm();draw()}}
+  function buildFlag(){
+    var fw=Math.min(W*.52,H*1.5),fh=fw*.6,o=document.createElement('canvas');o.width=Math.max(10,fw);o.height=Math.max(6,fh);
+    var c=o.getContext('2d');c.fillStyle='#006a4e';c.fillRect(0,0,o.width,o.height);c.fillStyle='#f42a41';c.beginPath();c.arc(o.width*.45,o.height/2,o.height/3,0,7);c.fill();flagImg=o;
+  }
+  function launch(x,y,pal){rockets.push({x:x+(Math.random()-.5)*60,y:H,tx:x,ty:y,pal:pal})}
+  function boom(x,y,pal){for(var i=0;i<72;i++){var a=Math.random()*6.283,s=.8+Math.random()*3.4;sparks.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,d:.008+Math.random()*.012,c:pal[i%pal.length]})}}
+  var PAL={cny:['#ff4a36','#ffc94a','#ffe9a8'],victory:['#2fd39a','#f42a41','#ffffff']};
+  function addLant(x){lants.push({x:x,y:H+20,vy:.3+Math.random()*.5,ph:Math.random()*6,sc:.8+Math.random()*.6})}
+  function addPetals(x,y,n){for(var i=0;i<n;i++)petals.push({x:x,y:y,vx:(Math.random()-.5)*4,vy:-Math.random()*3,r:Math.random()*6,vr:(Math.random()-.5)*.2,c:['#e0412f','#f6efe0','#f6efe0','#c8321f'][i%4],s:4+Math.random()*5})}
+  function reset(){rockets=[];sparks=[];lants=[];petals=[];t=0;nextFw=.4;
+    if(mode==='autumn'){for(var i=0;i<8;i++){addLant(Math.random()*W);lants[i].y=H*Math.random()}}
+    if(mode==='boishakh'){for(var j=0;j<40;j++){addPetals(Math.random()*W,Math.random()*H,1);petals[j].vy=.5+Math.random()}}
+    if(reduce){warm();draw()}}
+  function warm(){for(var i=0;i<150;i++)step(1/60)}
+  function step(dt){
+    var f=dt*60;t+=dt;
+    if(mode==='cny'||mode==='victory'){
+      nextFw-=dt;if(nextFw<=0){launch(W*(.15+Math.random()*.7),H*(.12+Math.random()*.35),PAL[mode]);nextFw=.8+Math.random()*1.2}
+      rockets=rockets.filter(function(r){var dx=r.tx-r.x,dy=r.ty-r.y,d=Math.hypot(dx,dy);if(d<8){boom(r.tx,r.ty,r.pal);return false}r.x+=dx/d*7*f;r.y+=dy/d*7*f;return true});
+      sparks.forEach(function(s){s.x+=s.vx*f;s.y+=s.vy*f;s.vy+=.04*f;s.vx*=.985;s.l-=s.d*f});sparks=sparks.filter(function(s){return s.l>0});
+    }
+    if(mode==='autumn'){
+      if(lants.length<14&&Math.random()<.02*f)addLant(Math.random()*W);
+      lants.forEach(function(l){l.y-=l.vy*f;l.x+=Math.sin(t*.8+l.ph)*.3*f});lants=lants.filter(function(l){return l.y>-40});
+    }
+    if(mode==='boishakh'){
+      if(petals.length<90&&Math.random()<.5*f)addPetals(Math.random()*W,-10,1),petals[petals.length-1].vy=.6+Math.random()*1.4;
+      petals.forEach(function(p){p.x+=p.vx*f+Math.sin(t+p.r)*.4;p.y+=p.vy*f;p.vy+=.012*f;p.vy=Math.min(p.vy,2.4);p.vx*=.98;p.r+=p.vr*f});petals=petals.filter(function(p){return p.y<H+20})}
+  }
+  function lantern(x,y,s,a,col){
+    cx.save();cx.translate(x,y);cx.scale(s,s);cx.globalAlpha=a;
+    var g=cx.createRadialGradient(0,0,2,0,0,34);g.addColorStop(0,'rgba(255,180,90,.55)');g.addColorStop(1,'rgba(255,180,90,0)');cx.fillStyle=g;cx.beginPath();cx.arc(0,0,34,0,7);cx.fill();
+    cx.fillStyle=col||'#d8362a';cx.beginPath();cx.moveTo(-11,-14);cx.bezierCurveTo(-17,-4,-17,8,-10,15);cx.lineTo(10,15);cx.bezierCurveTo(17,8,17,-4,11,-14);cx.fill();
+    cx.fillStyle='#e8b04a';cx.fillRect(-8,-18,16,4);cx.fillRect(-8,15,16,3);cx.fillRect(-1,18,2,11);cx.restore();
+  }
+  function draw(){
+    var g,i;
+    if(mode==='cny'){
+      g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#14040a');g.addColorStop(1,'#3a0c12');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+      // pavilion
+      var c=W*.5,y0=H*.74,hw=W*.23;cx.fillStyle='#0b0206';cx.beginPath();cx.moveTo(c-hw-34,y0-18);cx.quadraticCurveTo(c-hw,y0+8,c-hw+54,y0-2);cx.lineTo(c-34,y0-44);cx.lineTo(c+34,y0-44);cx.lineTo(c+hw-54,y0-2);cx.quadraticCurveTo(c+hw,y0+8,c+hw+34,y0-18);cx.lineTo(c+hw,y0+14);cx.lineTo(c-hw,y0+14);cx.fill();
+      cx.fillRect(c-hw+24,y0+12,2*hw-48,H);cx.fillStyle='#4a0f14';for(i=0;i<5;i++)cx.fillRect(c-hw+40+i*(2*hw-90)/4,y0+16,7,H);
+      // lantern string
+      var n=Math.max(5,Math.round(W/110));cx.strokeStyle='rgba(232,176,74,.5)';cx.lineWidth=1.2;cx.beginPath();cx.moveTo(0,10);cx.quadraticCurveTo(W/2,46,W,10);cx.stroke();
+      for(i=0;i<n;i++){var u=(i+.5)/n,lx=W*u,ly=10+4*(1-Math.pow(2*u-1,2))*9+12;lantern(lx+Math.sin(t*1.4+i)*3,ly+16,.9,1)}
+      // fu diamond hanging upside down
+      cx.save();cx.translate(W*.12,H*.46);cx.rotate(Math.sin(t*1.2)*.08);cx.strokeStyle='rgba(232,176,74,.6)';cx.beginPath();cx.moveTo(0,-H*.3);cx.lineTo(0,-26);cx.stroke();
+      cx.rotate(Math.PI/4);cx.fillStyle='#c8321f';cx.fillRect(-24,-24,48,48);cx.strokeStyle='#e8b04a';cx.lineWidth=2;cx.strokeRect(-20,-20,40,40);cx.rotate(-Math.PI/4);cx.rotate(Math.PI);
+      cx.fillStyle='#ffd36a';cx.font='700 30px "Noto Serif SC",serif';cx.textAlign='center';cx.textBaseline='middle';cx.fillText('福',0,2);cx.restore();
+    }
+    if(mode==='autumn'){
+      g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#050e1c');g.addColorStop(.6,'#0f2c3a');g.addColorStop(1,'#1f4a46');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+      var rise=Math.max(0,1-t/4),mr=Math.min(W,H)*.15,mx=W*.68,my=H*.3+rise*H*.5;
+      g=cx.createRadialGradient(mx,my,mr*.8,mx,my,mr*3);g.addColorStop(0,'rgba(255,240,190,.4)');g.addColorStop(1,'rgba(255,240,190,0)');cx.fillStyle=g;cx.beginPath();cx.arc(mx,my,mr*3,0,7);cx.fill();
+      g=cx.createRadialGradient(mx-mr*.3,my-mr*.3,2,mx,my,mr);g.addColorStop(0,'#fffbe6');g.addColorStop(1,'#f0dc9c');cx.fillStyle=g;cx.beginPath();cx.arc(mx,my,mr,0,7);cx.fill();
+      cx.fillStyle='rgba(150,130,70,.18)';[[-.3,-.1,.22],[.25,.2,.16],[.05,.35,.12],[-.1,-.4,.1]].forEach(function(p){cx.beginPath();cx.arc(mx+p[0]*mr,my+p[1]*mr,p[2]*mr,0,7);cx.fill()});
+      var wy=H*.8;cx.fillStyle='#07181a';cx.fillRect(0,wy,W,H-wy);
+      for(i=0;i<8;i++){cx.fillStyle='rgba(255,236,170,'+(.28-i*.025)+')';var rw=mr*(1.3-i*.08)*(1+Math.sin(t*2+i)*.1);cx.fillRect(mx-rw/2,wy+6+i*((H-wy)/9),rw,3)}
+      lants.forEach(function(l){var a=Math.min(1,l.y/(H*.25));lantern(l.x,l.y,l.sc,a,'#e8742f')});
+      cx.fillStyle='rgba(232,176,74,.8)';for(i=0;i<26;i++){var px=(i*97+t*14)%W,py=(i*53+t*20+Math.sin(t+i)*14)%H;cx.beginPath();cx.arc(px,py,1.6,0,7);cx.fill()}
+    }
+    if(mode==='boishakh'){
+      g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#3a0d14');g.addColorStop(.45,'#b8342a');g.addColorStop(.8,'#f4a547');g.addColorStop(1,'#fbe3a0');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+      var sx=W*.5,sr=H*.2,sy=H*.68-Math.min(1,t/3.5)*H*.16+(1-Math.min(1,t/3.5))*H*.18;
+      cx.save();cx.translate(sx,sy);cx.rotate(t*.1);cx.strokeStyle='rgba(255,230,170,.35)';cx.lineWidth=2;for(i=0;i<24;i++){cx.rotate(Math.PI/12);cx.beginPath();cx.moveTo(sr*1.15,0);cx.lineTo(sr*(i%2?1.6:1.9),0);cx.stroke()}cx.restore();
+      cx.save();cx.translate(sx,sy);cx.rotate(-t*.25);cx.fillStyle='#f6efe0';for(i=0;i<18;i++){cx.rotate(Math.PI/9);cx.beginPath();cx.arc(sr*1.04,0,3.2,0,7);cx.fill()}cx.restore();
+      cx.fillStyle='#e0412f';cx.beginPath();cx.arc(sx,sy,sr,0,7);cx.fill();
+      var wy2=H*.8;cx.fillStyle='#2a0b10';cx.fillRect(0,wy2,W,H-wy2);cx.fillStyle='rgba(255,200,120,.35)';for(i=0;i<6;i++)cx.fillRect(sx-sr*(1-i*.14),wy2+5+i*7,sr*2*(1-i*.14),2.5);
+      var bx=((t*38)%(W+260))-130;cx.save();cx.translate(bx,wy2+3);cx.fillStyle='#14060a';cx.beginPath();cx.moveTo(-46,0);cx.quadraticCurveTo(0,20,46,0);cx.quadraticCurveTo(52,-8,56,-18);cx.quadraticCurveTo(0,-8,-52,-20);cx.quadraticCurveTo(-50,-8,-46,0);cx.fill();
+      cx.fillRect(-22,-20,2,-56);cx.beginPath();cx.moveTo(-20,-74);cx.quadraticCurveTo(14,-54,20,-22);cx.lineTo(-20,-20);cx.fill();cx.restore();
+      petals.forEach(function(p){cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.beginPath();cx.ellipse(0,0,p.s,p.s*.45,0,0,7);cx.fill();cx.restore()});
+    }
+    if(mode==='victory'){
+      g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#030c09');g.addColorStop(1,'#0b2d22');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+      cx.fillStyle='rgba(255,255,255,.7)';for(i=0;i<40;i++){cx.globalAlpha=.3+.5*Math.abs(Math.sin(t*.8+i));cx.fillRect((i*131)%W,(i*71)%(H*.6),1.5,1.5)}cx.globalAlpha=1;
+      if(flagImg){var fw=flagImg.width,fh=flagImg.height,fx=W/2-fw/2,fy=H*.14,sl=3;
+        cx.fillStyle='#c9b27a';cx.fillRect(fx-9,fy-14,5,H);cx.beginPath();cx.arc(fx-6.5,fy-16,6,0,7);cx.fillStyle='#e8b04a';cx.fill();
+        for(var xx=0;xx<fw;xx+=sl){var k2=xx/fw,off=Math.sin(xx*.045-t*3.2)*9*k2+Math.sin(xx*.02-t*1.7)*4*k2;
+          cx.drawImage(flagImg,xx,0,sl+1,fh,fx+xx,fy+off,sl+1,fh);
+          cx.fillStyle='rgba(0,0,0,'+(.18+.18*Math.cos(xx*.045-t*3.2))*k2+')';cx.fillRect(fx+xx,fy+off,sl+1,fh)}}
+    }
+    if(mode==='cny'||mode==='victory'){
+      cx.save();cx.globalCompositeOperation='lighter';
+      rockets.forEach(function(r){cx.fillStyle=r.pal[0];cx.fillRect(r.x-1.5,r.y-1.5,3,3)});
+      sparks.forEach(function(s){cx.globalAlpha=Math.max(0,s.l);cx.fillStyle=s.c;cx.beginPath();cx.arc(s.x,s.y,2.1*s.l+.4,0,7);cx.fill()});cx.restore();cx.globalAlpha=1;
+    }
+  }
+  function loop(ts){if(!last)last=ts;var dt=Math.min(.05,(ts-last)/1000);last=ts;if(vis){step(dt);draw()}requestAnimationFrame(loop)}
+  cv.addEventListener('pointerdown',function(e){
+    var r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+    if(mode==='cny'||mode==='victory'){if(!reduce)launch(x,y,PAL[mode])}
+    else if(mode==='autumn'){addLant(x)}
+    else{addPetals(x,y,36)}
+    if(reduce){warm();draw()}
+  });
+  $$('#festTabs .chip').forEach(function(b){b.addEventListener('click',function(){mode=b.getAttribute('data-m');$$('#festTabs .chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});setInfo();reset()})});
+  if('IntersectionObserver' in window){new IntersectionObserver(function(en){vis=en[0].isIntersecting}).observe(cv)}
+  window.addEventListener('resize',size);size();setInfo();reset();
+  if(!reduce)requestAnimationFrame(loop);
+})();
+
+/* ---------- Journey ---------- */
+(function(){
+  var E=[
+   ['c. 638','Xuanzang walks through Bengal','Chang\u2019an to Pundranagara','The Chinese pilgrim-scholar visits Pundranagara (today\u2019s Mahasthangarh, Bogura) and Samatata near Cumilla, and describes their monasteries in his Great Tang Records on the Western Regions.'],
+   ['1040','Atisha sets out from Bengal','Bikrampur to Tibet','Atisha Dipankara Srijnana, born near Bikrampur in today\u2019s Munshiganj, starts his journey north and teaches in Tibet until his death in 1054. Part of his remains returned to Dhaka in 1978.'],
+   ['1414','A giraffe for the Ming court','Bengal to Nanjing','Envoys of the Bengal Sultanate present a giraffe to the Yongle Emperor, whose court takes it for a qilin. In those same years Zheng He\u2019s fleets call at Chittagong.'],
+   ['1975','Diplomatic relations','Dhaka and Beijing','On 4 October, Bangladesh and the People\u2019s Republic of China establish diplomatic relations.'],
+   ['2022','The Padma Bridge opens','Mawa to Janjira','The 6.15-kilometre road and rail bridge links the south-west to Dhaka. China Major Bridge Engineering Company built its main structure.'],
+   ['2025','Fifty years','Both countries','The half-century of ties is marked as the Year of People-to-People Exchanges, with exhibitions, scholarships and cultural tours in both directions.']];
+  var F=[.04,.22,.42,.62,.8,.97],base=$('#rBase'),prog=$('#rProg'),L=base.getTotalLength(),nodes=$('#rNodes'),trav=$('#rTrav');
+  prog.style.strokeDasharray=L;var p=0,playing=false,last=0,idx=-1,els=[];
+  E.forEach(function(e,i){
+    var pt=base.getPointAtLength(F[i]*L),up=i%2===0;
+    var g=el('g',{class:'rnode',tabindex:0,role:'button','aria-label':e[0]+' '+e[1]},nodes);
+    el('circle',{cx:pt.x,cy:pt.y,r:11,fill:'var(--surface2)',stroke:'var(--jade)','stroke-width':3},g);
+    var t=el('text',{x:pt.x,y:pt.y+(up?-24:38),'text-anchor':'middle','font-family':'var(--serif)','font-size':20,fill:'var(--text)'},g);t.textContent=e[0];
+    els.push(g.firstChild);
+    function go(){setP(F[i]);playing=false;$('#rPlay').textContent='Play journey'}
+    g.addEventListener('click',go);g.addEventListener('keydown',function(k){if(k.key==='Enter'||k.key===' '){k.preventDefault();go()}});
+  });
+  function setP(v){p=Math.max(0,Math.min(1,v));prog.style.strokeDashoffset=L*(1-p);var q=base.getPointAtLength(p*L);trav.setAttribute('transform','translate('+q.x+' '+q.y+')');
+    var ni=-1;F.forEach(function(f,i){if(p>=f-.001)ni=i});
+    els.forEach(function(c,i){c.setAttribute('fill',i<=ni?'var(--red)':'var(--surface2)')});
+    if(ni!==idx){idx=ni;var e=E[Math.max(0,ni)];$('#rY').textContent=e[0];$('#rT').textContent=e[1];$('#rW').textContent=e[2];$('#rD').textContent=e[3]}}
+  function tick(ts){if(!playing)return;if(!last)last=ts;var dt=(ts-last)/1000;last=ts;setP(p+dt/16);if(p>=1){playing=false;$('#rPlay').textContent='Replay journey';return}requestAnimationFrame(tick)}
+  $('#rPlay').addEventListener('click',function(){
+    if(playing){playing=false;this.textContent='Play journey';return}
+    if(p>=1)setP(0);playing=true;last=0;this.textContent='Pause';requestAnimationFrame(tick)});
+  $('#rNext').addEventListener('click',function(){playing=false;$('#rPlay').textContent='Play journey';var n=F.filter(function(f){return f>p+.002})[0];setP(n===undefined?F[0]:n)});
+  $('#rPrev').addEventListener('click',function(){playing=false;$('#rPlay').textContent='Play journey';var c=F.filter(function(f){return f<p-.002});setP(c.length?c[c.length-1]:F[F.length-1])});
+  setP(F[0]);
+})();
+
+/* ---------- Club app ---------- */
+(function(){
+  var toastT;
+  function toast(m){var t=$('#toast');$('#toastTx').textContent=m;t.classList.remove('show');void t.offsetWidth;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show')},3200)}
+  function ref(){return 'BCC-'+Math.floor(1000+Math.random()*9000)}
+  // tabs
+  $$('#tabbar button').forEach(function(b){b.addEventListener('click',function(){
+    $$('#tabbar button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+    $$('.panel').forEach(function(p){p.hidden=p.id!=='p-'+b.getAttribute('data-p')});
+    if(b.getAttribute('data-p')==='chat'){$('#p-chat').style.display='flex'}else{$('#p-chat').style.display=''}
+    if(b.getAttribute('data-p')==='member')setTimeout(function(){$('#ptsBar').style.width='82.7%'},80);
+  })});
+  setTimeout(function(){$('#ptsBar').style.width='82.7%'},600);
+  // QR
+  (function(){var s=el('svg',{viewBox:'0 0 21 21',width:'100%',height:'100%'},$('#qr')),r=mkRnd(482),Z=21;
+    function fin(x,y){el('rect',{x:x,y:y,width:7,height:7,fill:'#111'},s);el('rect',{x:x+1,y:y+1,width:5,height:5,fill:'#f4f1e6'},s);el('rect',{x:x+2,y:y+2,width:3,height:3,fill:'#111'},s)}
+    fin(0,0);fin(14,0);fin(0,14);
+    for(var y=0;y<Z;y++)for(var x=0;x<Z;x++){if((x<8&&y<8)||(x>12&&y<8)||(x<8&&y>12))continue;if(r()>.5)el('rect',{x:x,y:y,width:1,height:1,fill:'#111'},s)}})();
+  // card flip + tilt
+  var mc=$('#mcard');
+  mc.addEventListener('click',function(){mc.classList.toggle('flipped')});
+  mc.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();mc.classList.toggle('flipped')}});
+  mc.addEventListener('pointermove',function(e){if(reduce||mc.classList.contains('flipped'))return;var r=mc.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    mc.style.transform='rotateY('+((x-.5)*16)+'deg) rotateX('+((.5-y)*14)+'deg)';mc.style.setProperty('--sx',x*100+'%');$$('.sheen',mc).forEach(function(s){s.style.setProperty('--sx',x*100+'%');s.style.setProperty('--sy',y*100+'%')})});
+  mc.addEventListener('pointerleave',function(){mc.style.transform=''});
+  // pay
+  $$('#payRow button').forEach(function(b){b.addEventListener('click',function(){$$('#payRow button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})})});
+  var paid=false;
+  $('#payBtn').addEventListener('click',function(){
+    if(paid)return;paid=true;var m=$('#payRow [aria-pressed="true"]').textContent;
+    toast('Paid ৳2,000 with '+m+'. Receipt '+ref()+' (demo)');this.textContent='Paid · thank you · ধন্যবাদ · 谢谢';this.disabled=true;this.style.opacity=.7;
+    $('#pts').textContent='1,340';$('#ptsBar').style.width='89.3%'});
+  // stay
+  var R=[['Deluxe room',6500],['Executive room',8500],['Jade suite',12000]],room=0,nights=2,pick=false;
+  var ci=$('#ci'),d=new Date();d.setDate(d.getDate()+7);ci.value=d.toISOString().slice(0,10);
+  var rb=$('#rooms');R.forEach(function(r,i){var b=document.createElement('button');b.className='opt';b.setAttribute('aria-pressed',i===0);b.innerHTML='<span>'+r[0]+'</span><b>'+taka(r[1])+' / night</b>';b.addEventListener('click',function(){room=i;$$('#rooms .opt').forEach(function(x,j){x.setAttribute('aria-pressed',j===i)});calc()});rb.appendChild(b)});
+  function calc(){
+    var tot=(R[room][1]*nights)*.85+(pick?1500:0);$('#stTot').textContent=taka(tot);$('#nV').textContent=nights;
+    var c=new Date(ci.value||Date.now());c.setDate(c.getDate()+nights);$('#co').textContent='Check-out '+c.toDateString().slice(0,10)}
+  $('#nM').addEventListener('click',function(){nights=Math.max(1,nights-1);calc()});$('#nP').addEventListener('click',function(){nights=Math.min(14,nights+1);calc()});
+  ci.addEventListener('change',calc);
+  $('#optPick').addEventListener('click',function(){pick=!pick;this.setAttribute('aria-pressed',pick);calc()});
+  $('#optTea').addEventListener('click',function(){this.setAttribute('aria-pressed',this.getAttribute('aria-pressed')!=='true')});
+  $('#stBtn').addEventListener('click',function(){toast('Request sent for '+R[room][0]+', '+nights+' night'+(nights>1?'s':'')+'. Ref '+ref()+' (demo)')});
+  calc();
+  // dine
+  var V=[['Silk Route','Sichuan, Cantonese and Bangladeshi kitchens. Peking duck is carved at the table; kacchi on Fridays.'],['Lantern Bar','The members\u2019 bar and terrace, open until late on weekends.'],['Tea Garden','Sylhet and Chinese teas, coffee, egg tarts and mishti doi from early morning.']];
+  var vi=0,gu=4,slot='19:30',pair=false,SL=['12:30','13:30','18:30','19:30','20:30'];
+  function dsum(){$('#dSum').textContent=gu+' at '+slot+(pair?' with tea pairing':'');$('#gV').textContent=gu}
+  $$('#venues .chip').forEach(function(b,i){b.addEventListener('click',function(){vi=i;$$('#venues .chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('#venueNote').textContent=V[i][1]})});
+  SL.forEach(function(s){var b=document.createElement('button');b.className='chip';b.textContent=s;b.setAttribute('aria-pressed',s===slot);b.addEventListener('click',function(){slot=s;$$('#slots .chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});dsum()});$('#slots').appendChild(b)});
+  $('#gM').addEventListener('click',function(){gu=Math.max(1,gu-1);dsum()});$('#gP').addEventListener('click',function(){gu=Math.min(20,gu+1);dsum()});
+  $('#optPair').addEventListener('click',function(){pair=!pair;this.setAttribute('aria-pressed',pair);dsum()});
+  $('#dBtn').addEventListener('click',function(){toast('Table held at '+V[vi][0]+' for '+gu+', '+slot+'. Ref '+ref()+' (demo)')});dsum();
+  // events
+  var EV=[['16','Oct','Inter-club table tennis tournament','Table tennis room, 15:00',42],['23','Oct','Dim sum and pitha masterclass','Silk Route Restaurant, 16:00',18],['31','Oct','Tea tasting: Sylhet meets Fujian','Tea Garden Café, 17:00',26],['16','Dec','Victory Day dinner','Grand banquet hall, 19:30',130]];
+  EV.forEach(function(e){var d=document.createElement('div');d.className='ev';var going=false,n=e[4];
+    d.innerHTML='<div class="d"><b>'+e[0]+'</b><span>'+e[1]+'</span></div><div><h4>'+e[2]+'</h4><p>'+e[3]+' · <span class="cnt">'+n+'</span> going</p></div><button aria-pressed="false">RSVP</button>';
+    var b=$('button',d);b.addEventListener('click',function(){going=!going;n+=going?1:-1;$('.cnt',d).textContent=n;b.setAttribute('aria-pressed',going);b.textContent=going?'Going':'RSVP';if(going)toast('You are going to '+e[2]+' (demo)')});
+    $('#evList').appendChild(d)});
+  // chat
+  var BOT={
+   thanks:{en:'Happy to help. ধন্যবাদ, 谢谢.',bn:'আপনাকে ধন্যবাদ। 谢谢, thank you.',zh:'不客气。ধন্যবাদ, thank you.'},
+   greet:{en:'Welcome to Bangladesh China Club. I can help with rooms, tables, events and membership. What would you like?',bn:'বাংলাদেশ চীন ক্লাবে স্বাগতম। আমি রুম, টেবিল, অনুষ্ঠান আর সদস্যপদ নিয়ে সাহায্য করতে পারি। কী জানতে চান?',zh:'欢迎来到孟中俱乐部。我可以协助客房、订位、活动和会员事宜。您需要什么?'},
+   tea:{en:'Tea Garden Café serves Sylhet and Chinese teas from early morning. On 31 Oct there is a Sylhet meets Fujian tasting at 17:00. Want me to hold a seat?',bn:'টি গার্ডেন ক্যাফেতে খুব সকাল থেকে সিলেট ও চীনা চা পাওয়া যায়। ৩১ অক্টোবর বিকেল ৫টায় সিলেট বনাম ফুজিয়ান চা-চক্র আছে। একটি আসন রাখব?',zh:'茶园咖啡馆从清晨起供应锡尔赫特茶和中国茶。10月31日17:00有“锡尔赫特遇见福建”品茶会,需要为您留座吗?'},
+   room:{en:'The guest house has twelve rooms and suites with member rates and airport pick-up on request. Open the Stay tab to price a visit.',bn:'গেস্ট হাউসে বারোটি রুম ও স্যুট আছে, সদস্যদের জন্য বিশেষ দর এবং অনুরোধে বিমানবন্দর থেকে নেওয়ার ব্যবস্থা। দাম দেখতে ‘থাকা’ ট্যাব খুলুন।',zh:'客房部共有十二间客房和套房,会员享优惠价,可应要求接机。打开“住宿”页即可估价。'},
+   event:{en:'Next up: table tennis tournament on 16 Oct, dim sum and pitha class on 23 Oct, tea tasting on 31 Oct. See the Events tab to RSVP.',bn:'আসছে: ১৬ অক্টোবর টেবিল টেনিস টুর্নামেন্ট, ২৩ অক্টোবর ডিম সাম ও পিঠা ক্লাস, ৩১ অক্টোবর চা-চক্র। যোগ দিতে ‘অনুষ্ঠান’ ট্যাব দেখুন।',zh:'近期活动:10月16日乒乓球赛,10月23日点心与皮塔制作课,10月31日品茶会。请在“活动”页报名。'},
+   member:{en:'Every application needs a proposer and a seconder, then committee approval. Permanent membership is ৳3,00,000 to join and ৳2,000 a month. Scroll to Membership to compare tiers.',bn:'প্রতিটি আবেদনে একজন প্রস্তাবক ও একজন সমর্থক লাগে, তারপর কমিটির অনুমোদন। স্থায়ী সদস্যপদে ভর্তি ফি ৳৩,০০,০০০ ও মাসিক ৳২,০০০। তুলনা করতে ‘সদস্যপদ’ অংশে যান।',zh:'每份申请需要一位提名人和一位附议人,再经执委会批准。正式会员入会费 ৳3,00,000,月费 ৳2,000。可在“会员”部分对比各类别。'},
+   food:{en:'Silk Route Restaurant runs Sichuan, Cantonese and Bangladeshi kitchens. Peking duck is carved at the table, and kacchi is served on Fridays.',bn:'সিল্ক রুট রেস্তোরাঁয় সিচুয়ান, ক্যান্টনিজ ও বাংলাদেশি রান্না মেলে। পিকিং ডাক টেবিলেই কেটে দেওয়া হয়, আর শুক্রবারে থাকে কাচ্চি।',zh:'丝路餐厅有川菜、粤菜和孟加拉菜三大厨房。北京烤鸭现场片切,周五供应卡奇。'},
+   fb:{en:'I can help with rooms, dining, events, tea and membership. Try one of the suggestions below.',bn:'আমি রুম, খাবার, অনুষ্ঠান, চা আর সদস্যপদ নিয়ে সাহায্য করতে পারি। নিচের পরামর্শগুলোর একটি চেষ্টা করুন।',zh:'我可以协助客房、餐饮、活动、茶和会员事宜。请试试下面的建议。'}};
+  var RX=[['thanks',/thank|ধন্যবাদ|谢谢/i],['tea',/\btea\b|\bcha\b|চা|茶/i],['room',/room|stay|guest ?house|suite|রুম|থাক|গেস্ট|住|客房/i],['event',/event|tournament|masterclass|program|অনুষ্ঠান|ইভেন্ট|活动|比赛/i],['member',/member|join|tier|সদস্য|会员/i],['food',/food|menu|duck|dine|restaurant|eat|খাব|রেস্তোরাঁ|菜|餐|鸭/i],['greet',/\b(hi|hello|hey)\b|salam|স্বাগতম|নমস্কার|হ্যালো|你好|欢迎/i]];
+  var msgs=$('#msgs');
+  function add(txt,who){var m=document.createElement('div');m.className='m '+who;m.textContent=txt;msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;return m}
+  function ask(q){
+    if(!q.trim())return;add(q,'me');var l=/[\u0980-\u09FF]/.test(q)?'bn':/[\u4e00-\u9fff]/.test(q)?'zh':'en',k='fb';
+    for(var i=0;i<RX.length;i++){if(RX[i][1].test(q)){k=RX[i][0];break}}
+    var ty=document.createElement('div');ty.className='m bot typing';ty.innerHTML='<span></span><span></span><span></span>';msgs.appendChild(ty);msgs.scrollTop=msgs.scrollHeight;
+    setTimeout(function(){ty.remove();add(BOT[k][l],'bot')},reduce?0:700)}
+  add(BOT.greet.en+' / '+BOT.greet.zh,'bot');
+  ['Tea tasting?','চা-চক্র কবে?','有什么活动?','Book a room'].forEach(function(c){var b=document.createElement('button');b.className='chip';b.textContent=c;b.addEventListener('click',function(){ask(c==='Book a room'?'room':c==='Tea tasting?'?'tea':c)});$('#chatChips').appendChild(b)});
+  $('#chatGo').addEventListener('click',function(){var i=$('#chatIn');ask(i.value);i.value=''});
+  $('#chatIn').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();ask(this.value);this.value=''}});
+})();
+
+/* ---------- Membership calculator ---------- */
+(function(){
+  var T=[['Founder','Founding members, full voting rights',0,3000,0,6],['Life','Single admission fee, for life',800000,2500,0,5],['Permanent','Full membership for individuals',300000,2000,0,4],['Corporate','Nominee held by a company',500000,5000,0,6],['Associate','Under 40, and spouses of members',100000,1500,0,2],['Diplomatic','Honorary, accredited diplomats',0,0,12000,3],['Temporary','Six-month term for expatriates',25000,3000,0,1,6]];
+  var host=$('#tiers'),rows=[];
+  T.forEach(function(t){var r=document.createElement('div');r.className='trow';r.innerHTML='<div class="n">'+t[0]+'<small>Guests up to '+t[5]+'</small></div><div class="tr" title="'+t[1]+'"><i></i></div><div class="v"></div>';host.appendChild(r);rows.push(r)});
+  function cost(t,y){return t[6]?t[2]+t[3]*t[6]:t[2]+t[3]*12*y+t[4]*y}
+  function upd(){var y=+$('#yrs').value;$('#yrsV').textContent=y+(y>1?' years':' year');
+    var cs=T.map(function(t){return cost(t,y)}),mx=Math.max.apply(null,cs);
+    rows.forEach(function(r,i){$('i',r).style.width=Math.max(1.5,cs[i]/mx*100)+'%';$('.v',r).textContent=taka(cs[i])})}
+  $('#yrs').addEventListener('input',upd);setTimeout(upd,60);
+})();
+
+setLang('en');
+})();
+</script>
+</body>
+</html>
