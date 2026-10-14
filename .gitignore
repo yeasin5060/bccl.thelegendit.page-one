@@ -1,0 +1,16 @@
+# Vercel
+.vercel
+
+# Operating System & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node / Environment (if added in future)
+node_modules/
+.env
+.env*.local
+*.log
